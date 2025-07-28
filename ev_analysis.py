@@ -1,24 +1,24 @@
-# ✅ IMPORTS
+# Import modules
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ✅ STEP 1: Load Data (Make sure your CSV includes the required columns)
+# STEP 1: Load Data (Make sure your CSV includes the required columns)
 # If your file is different, change 'ev_clustered_data.csv' below
 df = pd.read_csv("ev_clustered_data.csv")
 
-# ✅ STEP 2: Make sure 'Cluster' column exists
+#  STEP 2: Make sure 'Cluster' column exists
 # If not, run KMeans clustering here (example below):
 # from sklearn.cluster import KMeans
 # features = df[['Total_EV_Sales_2023', 'Growth_Rate_2023', 'GDP_Per_Capita_INR', 'EV_Per_Capita']]
 # kmeans = KMeans(n_clusters=3, random_state=42)
 # df['Cluster'] = kmeans.fit_predict(features)
 
-# ✅ STEP 3: Count Clusters and Set Colors
+# STEP 3: Count Clusters and Set Colors
 optimal_k = df['Cluster'].nunique()
 colors = plt.cm.tab10(np.linspace(0, 1, optimal_k))
 
-# ✅ FIGURE 1: Cluster Subplots
+# FIGURE 1: Cluster Subplots
 fig1, axs = plt.subplots(2, 2, figsize=(16, 12))
 
 # Plot 1: Sales vs Growth Rate
@@ -77,7 +77,7 @@ plt.tight_layout()
 fig1.savefig("ev_cluster_figure1.png", dpi=300, bbox_inches='tight')
 plt.show()
 
-# ✅ FIGURE 2: Vehicle Type & Growth Analysis
+# FIGURE 2: Vehicle Type & Growth Analysis
 fig2, axs2 = plt.subplots(1, 2, figsize=(16, 6))
 
 # Bar Plot: Vehicle Type Share
